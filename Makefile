@@ -7,7 +7,7 @@ shell:
 	docker run -it --rm -v /:/host ${IMAGE_NAME} /bin/bash
 
 start:
-	docker run -d --rm -P -v /:/host --name kalissh-dev ${IMAGE_NAME}
+	docker run -d --rm --network="host" -v /:/host --name kalissh-dev ${IMAGE_NAME}
 
 stop:
 	-docker rm -f kalissh-dev

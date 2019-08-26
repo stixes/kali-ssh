@@ -17,21 +17,21 @@ Useful if you haven't planned out your reverse shells.
 
 Example run command:
 
-    docker run -d --rm --network=host -v /:/host stixes/kali-ssh
+    docker run -d --rm --network=host stixes/kali-ssh
 
 After which you can log into the kali using `ssh -p 4422 root@<docker host ip>` 
 using `toor`as password.
 
-The --rm flag allows the killing of supervisord (ie. pkill supervisor or kill -9 -1)
-inside the container to cause the container to self-destruct and remove any data
-from the host. Very useful in a "burn-after-use" scenario.
+The --rm flag allows the killing of supervisord (ie. kill 1) inside the container
+to cause the container to self-destruct and remove any data from the host. 
+Very useful in a "burn-after-use" scenario.
 
 # More info and more tools
 
 The basic tools are in there, along with metasploit, but to keep image size down
 you may need to to install tools after starting.
 
-Read more about Kali linux meta packagere (here)[https://www.kali.org/news/kali-linux-metapackages/].
+Read more about Kali linux meta packagere https://www.kali.org/news/kali-linux-metapackages/
 
 # Disclaimer
 

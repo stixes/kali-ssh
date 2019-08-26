@@ -16,13 +16,16 @@ RUN echo -n "root:toor"|chpasswd && \
         ca-certificates \
         supervisor \
         metasploit-framework && \
+    apt-get dist-upgrade -y && \
+    apt-get autoremove -y && \
+    apt-get clean -y  && \
     updatedb && \
     mkdir /run/sshd && \
-    sed -i -r 's/.?UseDNS\syes/UseDNS no/' /etc/ssh/sshd_config && \
-    sed -i -r 's/.?PasswordAuthentication.+/PasswordAuthentication yes/' /etc/ssh/sshd_config && \
-    sed -i -r 's/.?ChallengeResponseAuthentication.+/ChallengeResponseAuthentication no/' /etc/ssh/sshd_config && \
-    sed -i -r 's/.?PermitRootLogin.+/PermitRootLogin yes/' /etc/ssh/sshd_config && \
-    sed -i -r 's/.?Port.+/Port 4422/' /etc/ssh/sshd_config
+    sed -i -r 's/^.?UseDNS\syes/UseDNS no/' /etc/ssh/sshd_config && \
+    sed -i -r 's/^.?PasswordAuthentication.+/PasswordAuthentication yes/' /etc/ssh/sshd_config && \
+    sed -i -r 's/^.?ChallengeResponseAuthentication.+/ChallengeResponseAuthentication no/' /etc/ssh/sshd_config && \
+    sed -i -r 's/^.?PermitRootLogin.+/PermitRootLogin yes/' /etc/ssh/sshd_config && \
+    sed -i -r 's/^.?Port.+/Port 4422/' /etc/ssh/sshd_config
 
 # Supervisord for starting ssh and postgresdb
 ADD supervisord.conf /etc/supervisor/conf.d/supervisord.conf
