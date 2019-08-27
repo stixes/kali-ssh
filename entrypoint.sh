@@ -5,7 +5,7 @@ if [ -f /etc/ssh/sshd_config ]; then
   mkdir -p /run/sshd
   sed -i -r 's/^.?UseDNS\syes/UseDNS no/' /etc/ssh/sshd_config
   sed -i -r 's/^.?PasswordAuthentication.+/PasswordAuthentication yes/' /etc/ssh/sshd_config
-  sed -i -r 's/^.?ChallengeResponseAuthentication.+/ChallengeResponseAuthentication no/' /etc/ssh/sshd_config
+#  sed -i -r 's/^.?ChallengeResponseAuthentication.+/ChallengeResponseAuthentication no/' /etc/ssh/sshd_config
   sed -i -r 's/^.?PermitRootLogin.+/PermitRootLogin yes/' /etc/ssh/sshd_config
   sed -i -r 's/^.?Port.+/Port 4422/' /etc/ssh/sshd_config
 fi
