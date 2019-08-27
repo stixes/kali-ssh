@@ -1,0 +1,15 @@
+version: "2"
+
+volumes:
+  kaliroot:
+
+services:
+  kali:
+#    image: stixes/kali-ssh
+    build: .
+    restart: always
+    network_mode: host
+    environment:
+      - ROOT_PW=nottoor
+    volumes:
+      - kaliroot:/root
